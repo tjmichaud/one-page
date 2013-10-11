@@ -4,6 +4,76 @@
 	box-sizing: border-box;
 	margin: 0;
 }
+
+
+/*
+* === BASE STYLING ===
+*/
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+body {
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+.lead {
+	font-size: 2em;
+}
+
+/*
+* — better display for horizontal rules —
+*/
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+/*
+* — Remove gap between images, videos, audio and canvas —
+*/
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+
+
+/*
+* === BROWSE HAPPY PROMPT ===
+*/
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/*
+* === MAIN NAVIGATION ===
+*/
+
 nav[role="navigation"] ul{
 	position: fixed;
 	background-color: rgba(0,0,0, .75);
@@ -29,23 +99,94 @@ nav a:hover {
 	color: #333;
 }
 
+/*
+* === GROUPING FLOATS ===
+*/
 
-section#about {
-	background-color: blue;
+/*
+ * Group: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.group:before,
+.group:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
+
+.group:after {
+    clear: both;
+}
+
+
+/*
+* === SECTIONS ===
+*/
+
+/* 
+Fun with a background image 
+- Media queries to pull in different sizes are at the bottom
+*/
+
+div[role="img"]{
+background-position:50% 50%; 
+background-repeat:no-repeat; 
+display:block; 
+-moz-background-size:cover; 
+-webkit-background-size:cover; 
+background-size:cover;
+}
+
+#about div[role="img"]{
+	background-image: url("../img/heading-bg-1200.jpg");
+}
+
+
 
 section#resume {
-	background-color: green;
+	background-color: #de501b;
 }
 section#portfolio {
-	background-color: red;
+	background-color: #333;
+	color: #efefef;
 }
 section#contact {
-	background-color: yellow;
+	background-color: #009154;
 }
+
+/*
+* === CONTENT ===
+*/
+
 .content {
 	width: 90%;
-	padding-top: 60px;
+	padding: 60px 0;
 	margin: 0 auto;
-	background-color: rgba(255,255,255,.5);
 }
+
+
+/*
+* === MEDIA QUERIES ===
+*/
+
+
+@media only screen and (max-width: 400px) {
+#about div[role="img"]{
+	background-image: url("../img/heading-bg-340.jpg");
+}
+}
+
+@media only screen and (min-width: 401px) and (max-width: 640px) {
+#about div[role="img"]{
+	background-image: url("../img/heading-bg-800.jpg");
+}
+}
+
+
